@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SlackAspNet.Events
+{
+	public class SlackReactionRemovedEvent
+	{
+		public SlackReactionRemovedEvent(SlackReactionInput input, SlackTeam team)
+		{
+			Input = input;
+			Team = team;
+		}
+
+		public SlackReactionInput Input { get; }
+		public SlackTeam Team { get; }
+	}
+}
