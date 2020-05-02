@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using SlackAspNet.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ namespace SlackAspNet.Endpoints
 {
 	public class SlackActionContext : SlackContext
 	{
-		public SlackActionContext(string channelId, string threadTs, string teamId, string userId, JToken state) : base(channelId, threadTs, teamId, userId)
+		public SlackActionContext(ChannelSlackId channelId, TimestampSlack threadTs, TeamSlackId teamId, UserSlackId userId, JToken state) : base(channelId, threadTs, teamId, userId)
 		{
 			State = state;
 		}

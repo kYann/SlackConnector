@@ -8,11 +8,11 @@ namespace SlackAspNet.Routing
     sealed class SlackRouteAttribute : Attribute
     {
 
-        public SlackRouteAttribute(string route)
+        public SlackRouteAttribute(string template)
         {
-            this.PositionalString = route;
+            this.Template = template;
         }
 
-        public string PositionalString { get; }
+        public string Template { get; }
     }
 }

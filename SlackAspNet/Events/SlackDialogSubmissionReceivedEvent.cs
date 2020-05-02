@@ -1,22 +1,18 @@
-﻿using System;
+﻿using SlackAspNet.Types;
+using SlackLibrary.MessageActions;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Whyse.Bots.Slack.Interactors;
-using Whyse.Bots.Slack.Services;
 
 namespace SlackAspNet.Events
 {
 	public class SlackDialogSubmissionReceivedEvent
 	{
-		public SlackDialogSubmissionReceivedEvent(SlackDialogReceivedInput input, SlackTeam team, CallbackContext callbackContext)
+		public SlackDialogSubmissionReceivedEvent(DialogSubmissionPayload input)
 		{
 			Input = input;
-			Team = team;
-			CallbackContext = callbackContext;
 		}
 
-		public SlackDialogReceivedInput Input { get; }
-		public SlackTeam Team { get; }
-		public CallbackContext CallbackContext { get; }
+		public DialogSubmissionPayload Input { get; }
 	}
 }

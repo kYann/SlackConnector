@@ -26,7 +26,6 @@ namespace SlackAspNet.Services
 			{
 				var outerEvent = this.eventInterpreter.InterpretEvent(json);
 
-				this.slackHandshake.AssertToken(outerEvent.Token);
 				switch (outerEvent)
 				{
 					case UrlVerificationEvent he:
@@ -57,13 +56,64 @@ namespace SlackAspNet.Services
 						}
 						break;
 				}
-				return new OkResult();
 			}
 			catch (Exception e)
 			{
 				logger.LogError(e, "Error when dispatching event {payload}", json);
 				throw;
 			}
+
+			return null;
+		}
+
+		private object GenerateReactionRemovedResult(ReactionEvent re, string teamId)
+		{
+			throw new NotImplementedException();
+		}
+
+		private object GenerateReactionAddedResult(ReactionEvent re, string teamId)
+		{
+			throw new NotImplementedException();
+		}
+
+		private object GenerateAppUninstalledResult(string apiAppId, string teamId)
+		{
+			throw new NotImplementedException();
+		}
+
+		private Task<object> GenerateUserUpdateResult(string id, string teamId)
+		{
+			throw new NotImplementedException();
+		}
+
+		private object GenerateUserCreationResult(string id, string teamId)
+		{
+			throw new NotImplementedException();
+		}
+
+		private Task<object> GenerateTeamUpdateResult(string teamId)
+		{
+			throw new NotImplementedException();
+		}
+
+		private object GenerateMessageReceivedResult(MessageEvent me, string teamId, DateTime eventTime)
+		{
+			throw new NotImplementedException();
+		}
+
+		private object GenerateMessageDeletedResult(MessageDeletedEvent me, string teamId, DateTime eventTime)
+		{
+			throw new NotImplementedException();
+		}
+
+		private object GenerateMessageChangedResult(MessageChangedEvent me, string teamId, DateTime eventTime)
+		{
+			throw new NotImplementedException();
+		}
+
+		private object GenerateHandshakeResult(UrlVerificationEvent he)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

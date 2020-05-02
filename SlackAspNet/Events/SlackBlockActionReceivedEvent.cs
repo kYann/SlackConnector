@@ -1,19 +1,17 @@
-﻿using System;
+﻿using SlackLibrary.MessageActions;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using Whyse.Bots.Slack.Interactors;
 
 namespace SlackAspNet.Events
 {
 	public class SlackBlockActionReceivedEvent
 	{
-		public SlackBlockActionReceivedEvent(SlackBlockActionReceivedInput input, SlackTeam team)
+		public SlackBlockActionReceivedEvent(BlockActionPayload input)
 		{
 			Input = input;
-			Team = team;
 		}
 
-		public SlackBlockActionReceivedInput Input { get; }
-		public SlackTeam Team { get; }
+		public BlockActionPayload Input { get; }
 	}
 }

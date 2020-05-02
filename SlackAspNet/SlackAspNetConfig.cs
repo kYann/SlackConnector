@@ -21,5 +21,6 @@ namespace SlackAspNet
 		}
 
 		public SlackAspNetEndpointConfig Endpoints { get; set; }
+		public string SigningKey { get; set; }
 	}
 }

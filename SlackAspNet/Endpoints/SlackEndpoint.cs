@@ -1,14 +1,17 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using SlackAspNet.Actions;
+using SlackAspNet.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SlackAspNet.Endpoints
 {
 	public class SlackContext
 	{
-		public SlackContext(string channelId, string threadTs, string teamId, string userId)
+		public SlackContext(ChannelSlackId channelId, TimestampSlack threadTs, TeamSlackId teamId, UserSlackId userId)
 		{
 			ChannelId = channelId;
 			ThreadTs = threadTs;
@@ -16,26 +19,21 @@ namespace SlackAspNet.Endpoints
 			UserId = userId;
 		}
 
-		public string ChannelId { get; }
+		public ChannelSlackId ChannelId { get; }
 
-		public string ThreadTs { get; }
+		public TimestampSlack ThreadTs { get; set; }
 
-		public string TeamId { get; }
+		public TeamSlackId TeamId { get; }
 
-		public string UserId { get; }
+		public UserSlackId UserId { get; }
 	}
 
 	public class SlackEndpoint<T> : SlackEndpoint where T : SlackContext
 	{
-		public SlackEndpoint(T context)
-		{
-			Context = context;
-		}
-
-		public T Context { get; }
+		public T Context { get; internal set; }
 	}
 
-	public class SlackEndpoint
+	public abstract class SlackEndpoint
 	{
 	}
 }
