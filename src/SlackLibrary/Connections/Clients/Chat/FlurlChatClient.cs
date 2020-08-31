@@ -154,5 +154,14 @@ namespace SlackLibrary.Connections.Clients.Chat
 			_responseVerifier.VerifyResponse(response);
 			return response;
 		}
-	}
+
+        public async Task DeleteOriginalMessage(string responseUrl)
+        {
+            var response = await responseUrl.PostJsonAsync(new
+            {
+                delete_original = true
+            }).ReceiveJson<DefaultStandardResponse>();
+            _responseVerifier.VerifyResponse(response);
+        }
+    }
 }
